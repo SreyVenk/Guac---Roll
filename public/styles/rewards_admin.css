@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.reward-deal {
+    margin: 15px 0;
+}
+.admin-controls {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    background-color: #333;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}

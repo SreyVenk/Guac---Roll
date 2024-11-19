@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.review {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+.admin-controls {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    background-color: #333;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+.reply-section {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 2px solid #333;
+}
