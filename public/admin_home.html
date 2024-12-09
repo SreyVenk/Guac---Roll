@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Home Page</title>
+  <link rel="stylesheet" href="styles/admin_home.css" />
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+  <ul>
+    <li><a href="menulayout_admin.html">Menu</a></li>
+    <li><a href="rewards_admin.html">Rewards</a></li>
+    <li><a href="admin_home.html">Home</a></li>
+    <li><a href="admin_user_management.html">User Management</a></li>
+    <li><a href="admin_review.html">Reviews</a></li>
+  </ul>
+</nav>
+
+<h1>Admin Home Page - Admin View</h1>
+
+<!-- Admin Controls to Edit Home Page Content -->
+<div class="admin-controls">
+  <h2>Edit Home Page Content</h2>
+  <textarea id="home-content" rows="4" cols="50" placeholder="Enter new home page content"></textarea><br>
+  <button onclick=>Save Changes</button>
+</div>
+
+<div class="admin-controls">
+  <button onclick="">Finalize Home Page</button>
+  <p id="home-status-message"></p>
+</div>
+
+</body>
+</html>

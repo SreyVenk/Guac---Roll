@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guac-N-Roll Distributor Admin</title>
+    <link rel="stylesheet" href="styles/distributor.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1>Guac-N-Roll</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#inventory">Inventory</a></li>
+            <li><a href="#orders">Orders</a></li>
+            <li><a href="#deliveries">Deliveries</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="inventory">
+        <h2>Manage Inventory</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Quantity Available</th>
+                <th>Restock</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Avocados</td>
+                <td>50</td>
+                <td><button>Restock</button></td>
+            </tr>
+            <tr>
+                <td>Tortillas</td>
+                <td>100</td>
+                <td><button>Restock</button></td>
+            </tr>
+            <tr>
+                <td>Tomatoes</td>
+                <td>40</td>
+                <td><button>Restock</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="orders">
+        <h2>Current Orders</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>#12345</td>
+                <td>John Doe</td>
+                <td>Guacamole, Tortilla Chips</td>
+                <td>Processing</td>
+            </tr>
+            <tr>
+                <td>#12346</td>
+                <td>Jane Smith</td>
+                <td>Burrito, Salsa</td>
+                <td>Completed</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="deliveries">
+        <h2>Delivery Status</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Delivery ID</th>
+                <th>Order ID</th>
+                <th>Delivery Address</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>#D12345</td>
+                <td>#12345</td>
+                <td>123 Taco Ave</td>
+                <td>On the way</td>
+            </tr>
+            <tr>
+                <td>#D12346</td>
+                <td>#12346</td>
+                <td>456 Burrito Blvd</td>
+                <td>Delivered</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <p>© 2024 Guac-N-Roll. All rights reserved.</p>
+</footer>
+</body>
+</html>
