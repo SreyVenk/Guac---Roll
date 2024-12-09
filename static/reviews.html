@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow Semi Condensed" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla One" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles/reviews.css" />
+  <title>Reviews</title>
+</head>
+<nav class="navigation">
+  <div id="brand"><a href="index.html">Guac N Roll</a></div>
+  <div class="products">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="rewards.html">Rewards</a>
+    <a href="login.html">Login</a>
+  </div>
+  <a href="cart.html">Cart</a>
+</nav>
+
+<body>
+<div class="container">
+  <div id="reviews-container"></div>
+</div>
+<script>
+  async function fetchReviews() {
+    try {
+      const response = await fetch('http://localhost:8080/reviews');
+      const reviews = await response.json();
+      const container = document.getElementById('reviews-container');
+
+      reviews.forEach(review => {
+        const reviewDiv = document.createElement('div');
+        reviewDiv.classList.add('reviews');
+
+        reviewDiv.innerHTML = `
+            ${'<i class="fa-solid fa-star"></i>'.repeat(review.rating)}
+            <p>${review.details}</p>
+          `;
+        container.appendChild(reviewDiv);
+      });
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+    }
+  }
+
+  fetchReviews();
+</script>
+</body>
+</html>

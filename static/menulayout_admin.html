@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mexican Restaurant Menu - Admin View</title>
+  <link rel="stylesheet" href="styles/menulayout_admin.css" />
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+  <ul>
+    <li><a href="menulayout_admin.html">Menu</a></li>
+    <li><a href="rewards_admin.html">Rewards</a></li>
+    <li><a href="admin_home.html">Home</a></li>
+    <li><a href="admin_user_management.html">User Management</a></li>
+    <li><a href="admin_review.html">Reviews</a></li>
+  </ul>
+</nav>
+
+<h1>Mexican Restaurant Menu - Admin View</h1>
+
+<!-- Menu items listed here -->
+<div id="menu-items">
+  <div class="menu-item">
+    <p><strong>Tacos</strong> - $3.00</p>
+    <button onclick="">Edit</button>
+    <button onclick="">Delete</button>
+  </div>
+  <div class="menu-item">
+    <p><strong>Quesadilla</strong> - $4.50</p>
+    <button onclick="">Edit</button>
+    <button onclick="">Delete</button>
+  </div>
+  <div class="menu-item">
+    <p><strong>Burrito</strong> - $6.00</p>
+    <button onclick="">Edit</button>
+    <button onclick="">Delete</button>
+  </div>
+</div>
+
+<!-- Admin Controls to Add a New Menu Item -->
+<div class="admin-controls">
+  <h2>Add or Replace a Menu Item</h2>
+  <label for="item-name">Item Name: </label>
+  <input type="text" id="item-name" placeholder="Enter item name"><br>
+  <label for="item-price">Price: </label>
+  <input type="number" id="item-price" placeholder="Enter item price" step="0.01"><br>
+  <button onclick="addOrReplaceMenuItem()">Add/Replace Menu Item</button>
+</div>
+
+<div class="admin-controls">
+  <button onclick="finalizeChanges()">Finalize Changes</button>
+  <p id="status-message"></p>
+</div>
+
+</body>
+</html>
