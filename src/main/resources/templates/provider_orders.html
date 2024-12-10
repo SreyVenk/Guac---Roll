@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Orders</title>
+    <link rel="stylesheet" th:href="@{/provider_orders.css}">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{/reviews}">Manage Reviews</a></li>
+        <li><a th:href="@{/orders}">Manage Orders</a></li>
+        <li><a th:href="@{/provider/manage}">Manage Products</a></li>
+        <li><a th:href="@{/user/login}">Log Out</a></li>
+    </ul>
+</nav>
+<hr>
+<h1>Orders</h1>
+<ul>
+    <li th:each="order : ${orders}">
+        <p>Order ID: <span th:text="${order.orderId}">Order ID</span></p>
+        <p>Status: <span th:text="${order.status}">Order Status</span></p>
+        <p>Customer: <span th:text="${order.customerName}">Customer Name</span></p>
+        <p>Total: <span th:text="'$' + ${order.total}">Order Total</span></p>
+        <p>Details: <span th:text="${order.details}">Order Details</span></p>
+        <form th:action="@{/orders/update/{orderId}(orderId=${order.orderId})}" method="post">
+            <select name="status">
+                <option value="Pending" th:selected="${order.status == 'Pending'}">Pending</option>
+                <option value="Completed" th:selected="${order.status == 'Completed'}">Completed</option>
+                <option value="Cancelled" th:selected="${order.status == 'Cancelled'}">Cancelled</option>
+            </select>
+            <button type="submit">Update Status</button>
+        </form>
+    </li>
+</ul>
+</body>
+</html>

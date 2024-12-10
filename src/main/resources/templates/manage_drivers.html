@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Drivers</title>
+    <link rel="stylesheet" th:href="@{/distributor.css}">
+</head>
+<body>
+<header>
+    <h1>Existing Drivers</h1>
+</header>
+<nav>
+    <ul>
+        <li><a th:href="@{/distributor/home}">Distributor Home</a></li>
+        <li><a th:href="@{/distributor/drivers/create}">Create Driver</a></li>
+    </ul>
+</nav>
+<section>
+    <ul>
+        <li th:each="driver : ${drivers}">
+            <p><strong>Name:</strong> <span th:text="${driver.name}"></span></p>
+            <p><strong>License Number:</strong> <span th:text="${driver.licenseNumber}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${driver.email}"></span></p>
+            <p><strong>Available:</strong> <span th:text="${driver.available ? 'Yes' : 'No'}"></span></p>
+            <form th:action="@{/distributor/drivers/delete/{driverId}(driverId=${driver.id})}" method="post">
+                <button type="submit">Delete Driver</button>
+            </form>
+        </li>
+    </ul>
+</section>
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5em;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0;
+}
+
+/* Navigation List */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    width: 60%;
+    max-width: 500px;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    display: block;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.2em;
+}
+
+ul li a:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    ul {
+        width: 90%;
+    }
+}

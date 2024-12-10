@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Assigned Drivers</title>
+    <link rel="stylesheet" th:href="@{/distributor.css}">
+</head>
+<body>
+<h1>Assigned Delivery Orders</h1>
+
+<div th:if="${assignedOrders.isEmpty()}">
+    <p>No assigned orders currently.</p>
+</div>
+<div th:if="${!assignedOrders.isEmpty()}">
+    <table>
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Total</th>
+            <th>Delivery Address</th>
+            <th>Assigned Driver</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${assignedOrders}">
+            <td th:text="${order.orderId}"></td>
+            <td th:text="${order.customerName}"></td>
+            <td th:text="'$' + ${order.total}"></td>
+            <td th:text="${order.deliveryAddress}"></td>
+            <td th:text="${order.assignedDriver.name}"></td>
+            <td th:text="${order.status}"></td>
+            <td>
+                <form th:action="@{/distributor/orders/markDelivered}" method="post">
+                    <input type="hidden" name="orderId" th:value="${order.orderId}" />
+                    <button type="submit" th:disabled="${order.status == 'Delivered'}">Mark as Delivered</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<a href="/distributor/home">Back to Distributor Home</a>
+</body>
+</html>
