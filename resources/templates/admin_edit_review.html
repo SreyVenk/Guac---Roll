@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Review</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+<body>
+<h1>Edit Review</h1>
+<form th:action="@{/admin/reviews/edit/{id}(id=${review.reviewId})}" method="post">
+    <label for="customerName">Customer Name:</label>
+    <input type="text" id="customerName" name="customerName" th:value="${review.customerName}" readonly /><br/>
+
+    <label for="comment">Comment:</label><br/>
+    <textarea id="comment" name="comment" th:text="${review.comment}"></textarea><br/>
+
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" th:value="${review.rating}" min="1" max="5" /><br/>
+
+    <button type="submit">Save</button>
+</form>
+<a href="/admin/reviews">Cancel</a>
+</body>
+</html>

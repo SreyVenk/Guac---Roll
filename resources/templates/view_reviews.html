@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Reviews</title>
+</head>
+<body>
+<h1>Existing Reviews</h1>
+
+
+<hr>
+<h1>Reviews</h1>
+<ul>
+    <li th:each="review : ${reviews}">
+        <p><strong th:text="${review.customerName}">Customer Name</strong>: <span th:text="${review.comment}">Review Comment</span></p>
+        <p>Rating: <span th:text="${review.rating}">Rating</span></p>
+        <p>Guac N' Roll Reply: <span th:text="${review.providerReply ?: 'Waiting for reply...'}">Reply</span></p>
+    </li>
+
+<a href="/reviews/submit">Submit Another Review</a>
+</body>
+</html>

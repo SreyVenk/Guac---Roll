@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" th:href="@{/admin_home.css}">
+</head>
+<body>
+<header>
+  <h1>Admin Dashboard</h1>
+</header>
+<nav>
+  <ul>
+    <li><a th:href="@{/admin/users/manage}">Manage Users</a></li>
+    <li><a th:href="@{/admin/reviews/manage}">Manage Reviews</a></li>
+    <li><a th:href="@{/admin/statistics}">View Statistics</a></li>
+    <li><a th:href="@{/user/login}">Log Out</a></li>
+  </ul>
+</nav>
+<section>
+  <p>Welcome, Admin! Use the navigation above to manage users, reviews, and view site statistics.</p>
+</section>
+</body>
+</html>

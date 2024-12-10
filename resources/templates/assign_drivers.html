@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Assign Drivers</title>
+    <link rel="stylesheet" th:href="@{/distributor.css}">
+
+</head>
+<header>
+    <h1>Assign Drivers to Order</h1>
+</header>
+<nav>
+    <ul>
+        <li><a th:href="@{/distributor/home}">Home</a></li>
+        <li><a th:href="@{/distributor/drivers/manage}">Manage Drivers</a></li>
+        <li><a th:href="@{/distributor/orders/assign}">Assign Drivers</a></li>
+        <li><a th:href="@{/distributor/products/restock}">Restock Products</a></li>
+    </ul>
+</nav>
+<body>
+<!-- Display a list of available delivery orders -->
+<h2>Delivery Orders</h2>
+<div th:if="${orders.isEmpty()}">
+    <p>No delivery orders available for assignment.</p>
+</div>
+<div th:if="${!orders.isEmpty()}">
+    <table>
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Total</th>
+            <th>Delivery Address</th>
+            <th>Assign Driver</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${orders}">
+            <td th:text="${order.orderId}"></td>
+            <td th:text="${order.customerName}"></td>
+            <td th:text="'$' + ${order.total}"></td>
+            <td th:text="${order.deliveryAddress}"></td>
+            <td>
+                <form th:action="@{/distributor/orders/assign}" method="post">
+                    <input type="hidden" name="orderId" th:value="${order.orderId}" />
+                    <select name="driverId" required>
+                        <option value="" disabled selected>Select a Driver</option>
+                        <option th:each="driver : ${drivers}"
+                                th:value="${driver.id}"
+                                th:text="${driver.name} + ' (' + ${driver.licenseNumber} + ')'">
+                        </option>
+                    </select>
+                    <button type="submit">Assign</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Navigation Back to Distributor Home -->
+<a href="/distributor/home">Back to Distributor Home</a>
+</body>
+</html>

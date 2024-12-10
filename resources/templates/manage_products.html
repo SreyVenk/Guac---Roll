@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Products</title>
+    <link rel="stylesheet" th:href="@{/manage_products.css}">
+</head>
+<nav>
+    <ul>
+        <li><a th:href="@{/reviews}">Manage Reviews</a></li>
+        <li><a th:href="@{/orders}">Manage Orders</a></li>
+        <li><a th:href="@{/provider/manage}">Manage Products</a></li>
+        <li><a th:href="@{/user/login}">Log Out</a></li>
+    </ul>
+</nav>
+<body>
+<h1>Manage Products</h1>
+
+<!-- Add New Product Form -->
+<h2>Add New Product</h2>
+<form th:action="@{/provider/add}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required /><br>
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required /><br>
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" step="0.01" required /><br>
+
+    <label for="imageUrl">Image URL:</label>
+    <input type="text" id="imageUrl" name="imageUrl" required /><br>
+
+    <label for="stock">Stock:</label>
+    <input type="number" id="stock" name="stock" required /><br>
+
+    <button type="submit">Add Product</button>
+</form>
+
+<hr>
+
+<!-- Display Existing Products -->
+<h2>Existing Products</h2>
+<div th:if="${products.isEmpty()}">
+    <p>No products available.</p>
+</div>
+<div th:if="${!products.isEmpty()}">
+    <table>
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td><img th:src="${product.imageUrl}" alt="Product Image" style="width: 50px; height: 50px;" /></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="'$' + ${product.price}"></td>
+            <td th:text="${product.stock}"></td>
+            <td>
+                <button th:href="@{/provider/delete/{id}(id=${product.id})}" type="submit">Delete</button>
+                <a th:href="@{/provider/edit/{id}(id=${product.id})}">Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<a href="/provider/home">Back to Home</a>
+</body>
+</html>

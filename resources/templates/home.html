@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Guac n Roll - Home</title>
+    <link rel="stylesheet" th:href="@{/home.css}">
+    <script>
+        // Fetch a joke from the Joke API
+        async function fetchJoke() {
+            try {
+                const response = await fetch('https://official-joke-api.appspot.com/random_joke');
+                const joke = await response.json();
+                document.getElementById('joke').innerHTML = `
+                    <p><strong>${joke.setup}</strong></p>
+                    <p>${joke.punchline}</p>
+                `;
+            } catch (error) {
+                console.error('Error fetching the joke:', error);
+                document.getElementById('joke').innerHTML = '<p>Oops! Unable to load a joke right now.</p>';
+            }
+        }
+
+        // Load the joke when the page loads
+        window.onload = fetchJoke;
+    </script>
+</head>
+<body>
+<header>
+    <h1>Welcome to Guac n Roll!</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="/products">View Products</a></li>
+        <li><a href="/cart">Shopping Cart</a></li>
+        <li><a href="/reviews/submit">Submit Review</a></li>
+        <li><a href="/reviews/view">View Reviews</a></li>
+    </ul>
+</nav>
+<section class="center-content">
+    <img src="/images/logo.png" alt="Guac n Roll Logo" class="logo" width="600px" height="400px">
+    <p>Welcome to Guac n Roll! Enjoy delicious food and easy ordering.</p>
+    <p>Browse our <a href="/products">Products</a> to get started.</p>
+</section>
+<section id="joke-section">
+    <h2 style="text-align: center;">Joke of the Day</h2>
+    <div style="text-align: center;" id="joke">
+    </div>
+</section>
+</body>
+</html>
