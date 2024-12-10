@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Statistics</title>
+    <link rel="stylesheet" th:href="@{/admin_statistics.css}">
+
+</head>
+<body>
+<h1>Admin Statistics</h1>
+
+<p>Total Users: <span th:text="${userCount}"></span></p>
+<p>Total Providers: <span th:text="${providerCount}"></span></p>
+
+<h2>User Details</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Banned</th>
+        <th>Suspended</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.banned ? 'Yes' : 'No'}"></td>
+        <td th:text="${user.suspended ? 'Yes' : 'No'}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/admin/home}">Back to Admin Dashboard</a>
+</body>
+</html>

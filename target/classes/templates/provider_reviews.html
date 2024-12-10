@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Reviews</title>
+    <link rel="stylesheet" th:href="@{/provider_reviews.css}">
+
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{/reviews}">Manage Reviews</a></li>
+        <li><a th:href="@{/orders}">Manage Orders</a></li>
+        <li><a th:href="@{/provider/manage}">Manage Products</a></li>
+        <li><a th:href="@{/user/login}">Log Out</a></li>
+    </ul>
+</nav>
+
+<hr>
+<h1>Reviews</h1>
+<ul>
+    <li th:each="review : ${reviews}">
+        <p><strong th:text="${review.customerName}">Customer Name</strong>: <span th:text="${review.comment}">Review Comment</span></p>
+        <p>Rating: <span th:text="${review.rating}">Rating</span></p>
+        <p>Reply: <span th:text="${review.providerReply ?: 'No reply yet'}">Reply</span></p>
+        <form th:action="@{/reviews/{reviewId}/reply(reviewId=${review.reviewId})}" method="post">
+            <input type="text" name="reply" placeholder="Write your reply here..." />
+            <button type="submit">Reply</button>
+        </form>
+    </li>
+</ul>
+</body>
+</html>
