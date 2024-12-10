@@ -20,7 +20,7 @@ public class Driver {
     private String email; // Email of the driver, must be unique
 
     @Column(nullable = false)
-    private boolean available = true; // Indicates whether the driver is available
+    private boolean available = true;
 
     // Default constructor
     public Driver() {}

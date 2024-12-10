@@ -18,7 +18,7 @@ public class ReviewController {
     public String getAllReviews(Model model) {
         List<Review> reviews = reviewService.getAllReviews();
         model.addAttribute("reviews", reviews);
-        return "provider_reviews"; // For providers
+        return "provider_reviews";
     }
 
     @PostMapping("/{reviewId}/reply")
@@ -30,21 +30,19 @@ public class ReviewController {
     @GetMapping("/submit")
     public String showReviewForm(Model model) {
         model.addAttribute("review", new Review());
-        return "submit_review"; // Points to submit_review.html
+        return "submit_review";
     }
 
-    // Handle review submission and redirect to the review listing page
     @PostMapping("/submit")
     public String submitReview(@ModelAttribute("review") Review review) {
         reviewService.addReview(review);
-        return "redirect:/reviews/view"; // Redirect to the view reviews page
+        return "redirect:/reviews/view";
     }
 
-    // Show the page with all reviews
     @GetMapping("/view")
     public String showAllReviews(Model model) {
         List<Review> reviews = reviewService.getAllReviews();
         model.addAttribute("reviews", reviews);
-        return "view_reviews"; // Points to view_reviews.html
+        return "view_reviews";
     }
 }

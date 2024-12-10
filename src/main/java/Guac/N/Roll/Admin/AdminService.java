@@ -24,7 +24,7 @@ public class AdminService {
         Optional<User> userOptional = userRepository.findById(userId);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            user.setBanned(true); // Assuming a `banned` field exists in the User entity
+            user.setBanned(true);
             userRepository.save(user);
             return true;
         }
@@ -36,7 +36,7 @@ public class AdminService {
         Optional<User> userOptional = userRepository.findById(userId);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            user.setBanned(false); // Assuming a `banned` field exists in the User entity
+            user.setBanned(false);
             userRepository.save(user);
             return true;
         }
@@ -47,7 +47,7 @@ public class AdminService {
         Optional<User> userOptional = userRepository.findById(userId);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            user.setSuspended(true); // Mark user as suspended
+            user.setSuspended(true);
             userRepository.save(user);
             return true;
         }
@@ -58,7 +58,7 @@ public class AdminService {
         Optional<User> userOptional = userRepository.findById(userId);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            user.setSuspended(false); // Remove suspension
+            user.setSuspended(false);
             userRepository.save(user);
             return true;
         }
@@ -94,7 +94,7 @@ public class AdminService {
 
     public long getProviderCount() {
         return userRepository.findAll().stream()
-                .filter(user -> user.getEmail().contains("provider")) // Assuming providers are identified by email
+                .filter(user -> user.getEmail().contains("provider"))
                 .count();
     }
 
@@ -104,6 +104,6 @@ public class AdminService {
     }
 
     public List<User> getAllUsers() {
-        return userRepository.findAll(); // Retrieve all users from the database
+        return userRepository.findAll();
     }
 }

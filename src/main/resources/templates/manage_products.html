@@ -63,7 +63,9 @@
             <td th:text="'$' + ${product.price}"></td>
             <td th:text="${product.stock}"></td>
             <td>
-                <button th:href="@{/provider/delete/{id}(id=${product.id})}" type="submit">Delete</button>
+                <form th:action="@{/provider/delete/{id}(id=${product.id})}" method="post" style="display: inline;">
+                    <button type="submit">Delete</button>
+                </form>
                 <a th:href="@{/provider/edit/{id}(id=${product.id})}">Edit</a>
             </td>
         </tr>

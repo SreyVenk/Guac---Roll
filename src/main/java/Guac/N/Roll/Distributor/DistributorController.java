@@ -24,19 +24,19 @@ public class DistributorController {
     private OrderRepository orderRepository;
 
 
-    // Show distributor dashboard
+
     @GetMapping("/home")
     public String showDistributorHomePage() {
         return "distributor_home";
     }
 
-    // Show "Create Driver" page
+
     @GetMapping("/drivers/create")
     public String showCreateDriverPage() {
         return "create_driver";
     }
 
-    // Manage drivers
+
     @GetMapping("/drivers/manage")
     public String manageDrivers(Model model) {
         List<Driver> drivers = distributorService.getAllDrivers();
@@ -69,7 +69,7 @@ public class DistributorController {
         return "redirect:/distributor/drivers/manage";
     }
 
-    // Restock products
+
     @GetMapping("/products/restock")
     public String showRestockProductsPage(Model model) {
         List<Product> products = productRepository.findAll();
@@ -83,7 +83,7 @@ public class DistributorController {
         return "redirect:/distributor/products/restock";
     }
 
-    // Assign drivers to orders
+
     @GetMapping("/orders/assign")
     public String showAssignDriverPage(Model model) {
         model.addAttribute("drivers", distributorService.getAllDrivers());

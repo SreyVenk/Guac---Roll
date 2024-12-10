@@ -43,7 +43,7 @@ public class CartController {
     public String showCart(Model model, HttpSession session) {
         model.addAttribute("cart", cartService.getCart(session));
         model.addAttribute("cartTotal", cartService.calculateCartTotal(session));
-        return "cart"; // Make sure this matches your cart template name
+        return "cart";
     }
 
     @PostMapping("/checkout")
@@ -60,16 +60,16 @@ public class CartController {
             return "cart";
         }
 
-        // Validate order type and delivery address
+
         if ("Delivery".equalsIgnoreCase(orderType) && (deliveryAddress == null || deliveryAddress.isBlank())) {
             model.addAttribute("error", "Delivery address is required for delivery orders.");
             return "cart";
         }
 
-        // Create the order
+
         orderService.createOrder(customerName, orderType, deliveryAddress, cart);
 
-        // Clear the cart
+
         session.removeAttribute("cart");
 
         model.addAttribute("message", "Order placed successfully!");

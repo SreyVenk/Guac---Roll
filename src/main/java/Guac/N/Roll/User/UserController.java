@@ -48,16 +48,16 @@ public class UserController {
             // Check if the user is suspended
             if (user.isSuspended()) {
                 model.addAttribute("error", "Your account is currently suspended. Please contact support.");
-                return "login"; // Redirect back to login with error
+                return "login";
             }
 
             // Check if the user is banned
             if (user.isBanned()) {
                 model.addAttribute("error", "Your account has been banned. Please contact support.");
-                return "login"; // Redirect back to login with error
+                return "login";
             }
 
-            // Store user in session and redirect based on type
+
             session.setAttribute("loggedInUser", user);
 
             if ("admin@gmail.com".equalsIgnoreCase(email)) {
@@ -67,7 +67,7 @@ public class UserController {
             } else if ("distributor@gmail.com".equalsIgnoreCase(email)) {
                 return "redirect:/distributor/home";
             } else {
-                return "redirect:/user/home"; // Redirect normal users to the website's home page
+                return "redirect:/user/home";
             }
         }
 

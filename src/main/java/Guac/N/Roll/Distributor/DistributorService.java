@@ -24,13 +24,13 @@ public class DistributorService {
     @Autowired
     private ProductRepository productRepository;
 
-    // Create a driver
+
     public Driver createDriver(String name, String licenseNumber, String email) {
         Driver driver = new Driver(name, licenseNumber, email, true);
         return driverRepository.save(driver);
     }
 
-    // Edit a driver
+
     public boolean editDriver(Long driverId, String name, String licenseNumber, String email) {
         Optional<Driver> driverOptional = driverRepository.findById(driverId);
         if (driverOptional.isPresent()) {
@@ -44,7 +44,7 @@ public class DistributorService {
         return false;
     }
 
-    // Delete a driver
+
     public boolean deleteDriver(Long driverId) {
         if (driverRepository.existsById(driverId)) {
             driverRepository.deleteById(driverId);
@@ -53,17 +53,17 @@ public class DistributorService {
         return false;
     }
 
-    // Get all drivers
+
     public List<Driver> getAllDrivers() {
         return driverRepository.findAll();
     }
 
-    // Get all orders
+
     public List<Order> getAllOrders() {
         return orderRepository.findAll();
     }
 
-    // Restock a product
+
     public boolean restockProduct(Long productId, int quantity) {
         Optional<Product> productOptional = productRepository.findById(productId);
         if (productOptional.isPresent()) {

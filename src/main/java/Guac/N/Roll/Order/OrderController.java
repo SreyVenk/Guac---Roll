@@ -43,6 +43,6 @@ public class OrderController {
     public String getOrderDetails(@PathVariable int orderId, Model model) {
         Order order = orderService.getOrderById(orderId);
         model.addAttribute("order", order);
-        return "order_details"; // Create a separate page for detailed order view
+        return "order_details";
     }
 }

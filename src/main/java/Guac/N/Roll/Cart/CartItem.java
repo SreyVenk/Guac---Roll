@@ -4,8 +4,8 @@ import Guac.N.Roll.Product.Product;
 
 public class CartItem {
 
-    private Product product; // The product being added to the cart
-    private int quantity;    // Quantity of the product
+    private Product product;
+    private int quantity;
 
     // Default Constructor
     public CartItem() {}

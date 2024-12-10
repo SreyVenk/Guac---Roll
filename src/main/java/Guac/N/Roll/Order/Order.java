@@ -24,13 +24,13 @@ public class Order {
     private double total;
 
     @Column(nullable = false)
-    private String orderType; // "Pickup" or "Delivery"
+    private String orderType;
 
-    private String deliveryAddress; // Null for pickup orders
+    private String deliveryAddress;
 
     @ManyToOne
-    @JoinColumn(name = "driver_id") // Foreign key for assigned driver
-    private Driver assignedDriver; // Null for pickup orders or unassigned delivery orders
+    @JoinColumn(name = "driver_id")
+    private Driver assignedDriver;
 
     public Order() {}
 

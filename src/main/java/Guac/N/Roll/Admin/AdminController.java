@@ -25,7 +25,7 @@ public class AdminController {
     public String showAdminDashboard(Model model) {
         model.addAttribute("userCount", adminService.getUserCount());
         model.addAttribute("providerCount", adminService.getProviderCount());
-        return "admin_dashboard"; // Points to admin_dashboard.html
+        return "admin_dashboard";
     }
 
     @PostMapping("/users/ban")
@@ -57,7 +57,7 @@ public class AdminController {
     public String manageReviews(Model model) {
         List<Review> reviews = reviewService.getAllReviews();
         model.addAttribute("reviews", reviews);
-        return "admin_manage_reviews"; // Corresponds to admin_manage_reviews.html
+        return "admin_manage_reviews";
     }
 
     // Show edit review form
@@ -65,7 +65,7 @@ public class AdminController {
     public String editReviewForm(@PathVariable int reviewId, Model model) {
         Review review = reviewService.getReviewById(reviewId);
         model.addAttribute("review", review);
-        return "admin_edit_review"; // Corresponds to admin_edit_review.html
+        return "admin_edit_review";
     }
 
     // Edit a review
@@ -87,20 +87,20 @@ public class AdminController {
     @GetMapping("/users/manage")
     public String manageUsers(Model model) {
         List<User> users = adminService.getAllUsers();
-        model.addAttribute("users", users); // Adding the users list to the model
-        return "manage_users"; // Corresponds to manage_users.html
+        model.addAttribute("users", users);
+        return "manage_users";
     }
 
     @GetMapping("/statistics")
     public String viewStatistics(Model model) {
         model.addAttribute("userCount", adminService.getUserCount());
         model.addAttribute("providerCount", adminService.getProviderCount());
-        model.addAttribute("users", adminService.getAllUsers()); // Adding user details
-        return "admin_statistics"; // Corresponds to admin_statistics.html
+        model.addAttribute("users", adminService.getAllUsers());
+        return "admin_statistics";
     }
 
     @GetMapping("/home")
     public String showAdminHomePage() {
-        return "admin_home"; // Corresponds to admin_home.html
+        return "admin_home";
     }
 }

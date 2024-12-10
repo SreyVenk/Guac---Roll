@@ -20,10 +20,10 @@ public class Product {
     private Double price;
 
     @Column(nullable = false)
-    private String imageUrl; // URL or path to the product image
+    private String imageUrl;
 
     @Column(nullable = false)
-    private int stock; // Stock quantity for the product
+    private int stock;
 
     // Default Constructor
     public Product() {}

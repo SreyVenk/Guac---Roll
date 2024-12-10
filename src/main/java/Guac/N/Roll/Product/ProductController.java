@@ -25,9 +25,9 @@ public class ProductController {
         Product product = productService.getProductById(id);
         if (product != null) {
             model.addAttribute("product", product);
-            return "product_details"; // Name of your product detail template
+            return "product_details";
         }
-        return "redirect:/products"; // Redirect back to products page if product not found
+        return "redirect:/products";
     }
 
 }
