@@ -2,6 +2,8 @@
 
 > Guac & Roll
 
+## HOW TO RUN THE PROJECT - December 10, 2024
+> Once the database and the program in IntelliJ are running, you can load the Login webpage and create a user account to view the website as a customer and complete an order. The admin, provider and distributor have a special log into accounts already created that they can log into with their credentials. From here, each of the logins will be able to access pages and features unique to the individual. You have the ability to logout as any unique user. If you are an admin, you have the ability to edit user reviews and to manage the users account status (ban and suspend). The provider has the ability to reply to reviews, manage products and manage orders. The distributor has the ability to manage item stock, delivery drivers and products. The project runs on a MYSQLDatabase through XAMPP and has been programmed in IntelliJ using Java, HTML and CSS.
      
 
 ## Team Members
